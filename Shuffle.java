@@ -39,7 +39,7 @@ public class Shuffle {
      * @param shuffleCount Number of times to run execute your shuffle logic. This is for you to implement.
      */
 	private static void shuffleDeck(int shuffleCount) {
-		String[] newDeck = deck;
+		String[] newDeck = new String[STD_DECK_SIZE];
 		long startTime = System.nanoTime();
 		
 		/* Your Code */
