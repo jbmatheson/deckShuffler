@@ -1,6 +1,4 @@
 import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class Shuffle {
@@ -41,6 +39,7 @@ public class Shuffle {
      * @param shuffleCount Number of times to run execute your shuffle logic. This is for you to implement.
      */
 	private static void shuffleDeck(int shuffleCount) {
+		String[] newDeck = deck;
 		long startTime = System.nanoTime();
 		
 		/* Your Code */
@@ -49,11 +48,12 @@ public class Shuffle {
 		long elapsedTime = endTime - startTime;
 		double seconds = (double)elapsedTime / 1000000000.0;
 		
-		System.out.println("\n--------============== New Deck Order after " + shuffleCount + " shuffles ==============--------");
+		System.out.println("\n--------============== New Deck Order after " + shuffleCount + " shuffles ===============--------");
 
 		printDeck();
 		System.out.println("\nThis Shuffling Algorithm took: "+ seconds + " seconds");
 		checkDeck();
+		checkShuffle(newDeck);
 	}
 
     /**
@@ -85,11 +85,22 @@ public class Shuffle {
 	        cardInventory.add(card);
         }
         int totalCards = cardInventory.size();
-        System.out.println("\n--------============== Number of unique cards: " + totalCards + " ==============--------");
+        System.out.println("\n-----------============== Number of unique cards: " + totalCards + " ==============-----------");
         if (totalCards != STD_DECK_SIZE) {
 	        System.out.println("Your deck does not have the correct number of cards!");
         }
     }
+	
+	private static void checkShuffle(String[] nDeck) {
+		int count = 0;
+		for (int i = 0; i < nDeck.length; i++) {
+			if(nDeck[i] != deck[i]) {
+				count++;
+			}
+		}
+		int percentChange = (count / STD_DECK_SIZE) * 100;
+		System.out.println("\n-----===== % cards from original deck not in the starting positon: " + percentChange + " =====---");
+	}
 
 	public static void main(String[] args) {
 		// shuffle 1,100,5000,20000,500000, and 1,000,000
