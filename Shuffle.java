@@ -90,7 +90,11 @@ public class Shuffle {
 	        System.out.println("Your deck does not have the correct number of cards!");
         }
     }
-	
+
+    /**
+     * Checks passed in nDeck against deck for percentage of cards not in the original positions
+     * @param nDeck new deck to check against original deck
+     */
 	private static void checkShuffle(String[] nDeck) {
 		int count = 0;
 		for (int i = 0; i < nDeck.length; i++) {
