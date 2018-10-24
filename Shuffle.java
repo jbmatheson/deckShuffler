@@ -102,7 +102,7 @@ public class Shuffle {
 				count++;
 			}
 		}
-		int percentChange = (count / STD_DECK_SIZE) * 100;
+		double percentChange = ((double) count / STD_DECK_SIZE) * 100;
 		System.out.println("\n-----===== % cards from original deck not in the starting positon: " + percentChange + " =====---");
 	}
 
